@@ -12,13 +12,13 @@ public class TrainControllerImpl implements TrainController {
 	public TrainControllerImpl() {
 		Thread follow = new Thread(() -> {
 			while (true) {
-				followSpeed();
 				try{
 					Thread.sleep(REFRESH_PERIOD);
 				} catch (InterruptedException e) {
 					Thread.currentThread().interrupt();
 					break;
-				} 
+				}
+				followSpeed();
 			}
 		});
 		follow.setDaemon(true);

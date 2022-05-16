@@ -1,19 +1,12 @@
 package hu.bme.mit.train.tachnograph;
 
-import com.google.common.collect.Table;
-
-import static org.junit.Assert.assertTrue;
-
-import com.google.common.collect.HashBasedTable;
-
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
 import hu.bme.mit.train.interfaces.TrainController;
 import hu.bme.mit.train.interfaces.TrainSensor;
 import hu.bme.mit.train.interfaces.TrainUser;
 import hu.bme.mit.train.system.TrainSystem;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 public class TachnographTest {
 
@@ -44,8 +37,7 @@ public class TachnographTest {
 
     @Test
     public void GetLastSetReferenceSpeedFromTachnograph() {
-        assertTrue(true);
-		//Assert.assertEquals(0, (int)Tachnograph.getReferenceSpeedSet());
+        Assert.assertEquals(0, (int)Tachnograph.getReferenceSpeedSet());
     }
 	
 }

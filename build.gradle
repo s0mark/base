@@ -11,11 +11,11 @@ subprojects { subproject ->
     jcenter()
   }
 }
-
+/*
 sonarqube {
   properties {
     property "sonar.projectKey", "s0mark_base"
     property "sonar.organization", "retelab"
     property "sonar.host.url", "https://sonarcloud.io"
   }
-}
+}*/
