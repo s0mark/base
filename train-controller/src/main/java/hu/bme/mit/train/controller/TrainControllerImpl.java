@@ -17,7 +17,7 @@ public class TrainControllerImpl implements TrainController {
 				followSpeed();
 				try{
 					Thread.sleep(REFRESH_PERIOD);
-				} catch (Exception e) {
+				} catch (InterruptedException e) {
 					break;
 				} 
 			}
@@ -74,7 +74,4 @@ public class TrainControllerImpl implements TrainController {
 		follow.join();
 		super.finalize();
 	}
-
-	// comment A
-	// comment B
 }
