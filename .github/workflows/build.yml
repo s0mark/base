@@ -19,6 +19,6 @@ jobs:
         run: ./gradlew build
       - name: Run tests
         run: echo "Tests:" && ./gradlew test
-
-
+      - name: Analyse code
+        run: ./gradlew sonarqube
 
