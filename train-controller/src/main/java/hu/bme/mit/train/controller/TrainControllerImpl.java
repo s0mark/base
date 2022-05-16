@@ -2,6 +2,9 @@ package hu.bme.mit.train.controller;
 
 import hu.bme.mit.train.interfaces.TrainController;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class TrainControllerImpl implements TrainController {
 
 	private int step = 0;
@@ -10,19 +13,13 @@ public class TrainControllerImpl implements TrainController {
 	private final long REFRESH_PERIOD = 1000;
 
 	public TrainControllerImpl() {
-		Thread follow = new Thread(() -> {
-			while (true) {
-				try{
-					Thread.sleep(REFRESH_PERIOD);
-				} catch (InterruptedException e) {
-					Thread.currentThread().interrupt();
-					break;
-				}
+		Timer timer = new Timer();
+		timer.scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run() {
 				followSpeed();
 			}
-		});
-		follow.setDaemon(true);
-		follow.start();
+		}, REFRESH_PERIOD, REFRESH_PERIOD);
 	} 
 
 	@Override
