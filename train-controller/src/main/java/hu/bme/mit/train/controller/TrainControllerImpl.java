@@ -7,6 +7,24 @@ public class TrainControllerImpl implements TrainController {
 	private int step = 0;
 	private int referenceSpeed = 0;
 	private int speedLimit = 0;
+	private final long REFRESH_PERIOD = 1000;
+	private boolean running = false;
+	private Thread follow;
+
+	public TrainControllerImpl() {
+		follow = new Thread(() -> {
+			while (running) {
+				followSpeed();
+				try{
+					Thread.sleep(REFRESH_PERIOD);
+				} catch (Exception e) {
+					break;
+				} 
+			}
+		});
+		running = true;
+		follow.start();
+	} 
 
 	@Override
 	public void followSpeed() {
@@ -47,6 +65,14 @@ public class TrainControllerImpl implements TrainController {
 	@Override
 	public void setJoystickPosition(int joystickPosition) {
 		this.step = joystickPosition;		
+	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		running = false;
+		follow.interrupt();
+		follow.join();
+		super.finalize();
 	}
 
 	// comment A
