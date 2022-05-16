@@ -13,13 +13,13 @@ public class TrainControllerImpl implements TrainController {
 	private final long REFRESH_PERIOD = 1000;
 
 	public TrainControllerImpl() {
-		Timer timer = new Timer();
+		/*Timer timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
 				followSpeed();
 			}
-		}, REFRESH_PERIOD, REFRESH_PERIOD);
+		}, REFRESH_PERIOD, REFRESH_PERIOD);*/
 	} 
 
 	@Override
